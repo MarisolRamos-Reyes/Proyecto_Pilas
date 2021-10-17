@@ -48,7 +48,7 @@ namespace Proyecto_Pilas
                 t = t.Siguiente;
             }
         }
-        public void Guardar(string nombreArchivo)
+        public void Guardar()
         {
 
             NodoPila t = _tope;
@@ -57,8 +57,7 @@ namespace Proyecto_Pilas
             {
                 return;
             }
-            nombreArchivo = "ArchivoPilaFormulario";
-            string path = @"c:\Pilas\" + nombreArchivo + ".txt";
+            string path = @"c:\Pilas\ArchivoPilaFormulario.txt";
             using (StreamWriter sw = File.CreateText(path))
             {
                 do
@@ -69,13 +68,12 @@ namespace Proyecto_Pilas
                 return;
             }
         }
-        public void Cargar(string nombreArchivo)
+        public void Cargar()
         {
-            nombreArchivo = "ArchivoPilaFormulario";
             string buscar = @"C:\Pilas\ArchivoPilaFormulario.txt";
             if (File.Exists(buscar))
             {
-                string[] lineas = File.ReadAllLines(@"C:\Pilas\" + nombreArchivo + ".txt");
+                string[] lineas = File.ReadAllLines(@"C:\Pilas\ArchivoPilaFormulario.txt");
                 foreach (var linea in lineas)
                 {
                     if (linea.Length == 0)

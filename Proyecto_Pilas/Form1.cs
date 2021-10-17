@@ -10,7 +10,7 @@ namespace Proyecto_Pilas
         {
             InitializeComponent();
             _pila = new MiPila();
-            _pila.Cargar("ArchivoPilaFormulario");
+            _pila.Cargar();
             _pila.Mostrar(lstVPilas);
         }
 
@@ -20,14 +20,14 @@ namespace Proyecto_Pilas
             string nombre = txtNombre.Text;
             NodoPila NodoNuevo = new NodoPila(numero,nombre);
             _pila.Push(NodoNuevo);
-            _pila.Guardar("ArchivoPilaFormulario");
+            _pila.Guardar();
             _pila.Mostrar(lstVPilas);
         }
 
         private void btnDesapilar_Click(object sender, EventArgs e)
         {
             _pila.Pop();
-            _pila.Guardar("ArchivoPilaFormulario");
+            _pila.Guardar();
             _pila.Mostrar(lstVPilas);
         }
     }
