@@ -18,7 +18,8 @@ namespace Proyecto_Pilas
         {
             int numero = int.Parse(txtNumero.Text);
             string nombre = txtNombre.Text;
-            NodoPila NodoNuevo = new NodoPila(numero,nombre);
+            string fecha = DateTime.Now.ToString("dd/MM/yyyy_hh:mm:ss");
+            NodoPila NodoNuevo = new NodoPila(numero,nombre,fecha);
             _pila.Push(NodoNuevo);
             _pila.Guardar();
             _pila.Mostrar(lstVPilas);

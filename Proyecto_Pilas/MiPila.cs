@@ -44,6 +44,7 @@ namespace Proyecto_Pilas
                 ListViewItem datos = new ListViewItem
                     (Convert.ToString(t.numero));
                 datos.SubItems.Add(t.nombre);
+                datos.SubItems.Add(t.fecha);
                 caja.Items.Add(datos);
                 t = t.Siguiente;
             }
@@ -62,7 +63,7 @@ namespace Proyecto_Pilas
             {
                 do
                 {
-                    sw.WriteLine(t.Numero + "-" + t.Nombre);
+                    sw.WriteLine(t.Numero + "-" + t.Nombre+"-"+t.Fecha);
                     t=t.siguiente;
                 } while (t != null);
                 return;
@@ -83,7 +84,8 @@ namespace Proyecto_Pilas
                     string[] datos = linea.Split('-');
                     int numero = int.Parse(datos[0]);
                     string nombre = datos[1];
-                    NodoPila n = new NodoPila(numero, nombre);
+                    string fecha = datos[2];
+                    NodoPila n = new NodoPila(numero, nombre,fecha);
                     Push(n);
                 }
             }

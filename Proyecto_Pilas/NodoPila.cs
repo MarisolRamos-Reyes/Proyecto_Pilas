@@ -10,6 +10,7 @@ namespace Proyecto_Pilas
     {
         public  int numero;
         public string nombre;
+        public string fecha;
         public NodoPila siguiente;
 
         public NodoPila Siguiente
@@ -22,6 +23,11 @@ namespace Proyecto_Pilas
             get { return nombre; }
             set { nombre = value; }
         }
+        public string Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
+        }
         public int Numero
         {
             get { return numero; }
@@ -31,12 +37,14 @@ namespace Proyecto_Pilas
         {
             numero = 0;
             nombre = "";
+            fecha = "";
             siguiente = null;
         }
-        public NodoPila(int num, string nomb)
+        public NodoPila(int num, string nomb, string fech)
         {
             numero = num;
             nombre = nomb;
+            fecha = fech;
             siguiente = null;
         }
     }
