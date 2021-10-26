@@ -34,6 +34,33 @@ namespace Proyecto_Pilas
                 _tope = _tope.Siguiente;
             }
         }
+        public void Modificar(int d, string n, string f)
+        {
+            //Revisar que la lista NO este vacia!!!
+            if (_tope == null)
+            {
+                return;
+            }
+            //Si el nodo a modificar es el primero(head)
+            if (_tope.Numero == d)
+            {
+                _tope.Nombre = n;
+                _tope.Fecha = f;
+                return;
+            }
+            NodoPila t = _tope;
+            while (t.Siguiente != null)
+            {
+                if (t.Siguiente.Numero == d)
+                {
+                    t.Siguiente.Nombre = n;
+                    t.Siguiente.Fecha = f;
+                    return;
+                }
+                t = t.Siguiente;
+            }
+            return;
+        }
 
         public void Mostrar(ListView caja)
         {
@@ -84,7 +111,7 @@ namespace Proyecto_Pilas
                     string[] datos = linea.Split('-');
                     int numero = int.Parse(datos[0]);
                     string nombre = datos[1];
-                    string fecha = datos[2];
+                       string fecha = datos[2];
                     NodoPila n = new NodoPila(numero, nombre,fecha);
                     Push(n);
                 }

@@ -31,5 +31,15 @@ namespace Proyecto_Pilas
             _pila.Guardar();
             _pila.Mostrar(lstVPilas);
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            int numero = int.Parse(txtNumero.Text);
+            string fecha = DateTime.Now.ToString("dd/MM/yyyy_hh:mm:ss");
+            _pila.Modificar(numero, txtNombre.Text, fecha);
+            txtNumero.Clear();
+            txtNombre.Clear();
+            _pila.Mostrar(lstVPilas);
+        }
     }
 }
