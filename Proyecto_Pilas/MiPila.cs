@@ -33,6 +33,10 @@ namespace Proyecto_Pilas
             {
                 _tope = _tope.Siguiente;
             }
+            else
+            {
+                MessageBox.Show("La pila esta vacia", "Pila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         public void Modificar(int d, string n, string f)
         {
@@ -64,7 +68,7 @@ namespace Proyecto_Pilas
 
         public void Mostrar(ListView caja)
         {
-            caja.Items.Clear();
+            caja.Items.Clear();  
             NodoPila t = _tope;
             while (t != null)
             {
@@ -112,7 +116,7 @@ namespace Proyecto_Pilas
                     int numero = int.Parse(datos[0]);
                     string nombre = datos[1];
                        string fecha = datos[2];
-                    NodoPila n = new NodoPila(numero, nombre,fecha);
+                    NodoPila n = new NodoPila(numero, nombre, fecha);
                     Push(n);
                 }
             }
