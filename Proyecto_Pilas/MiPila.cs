@@ -16,7 +16,7 @@ namespace Proyecto_Pilas
         public MiPila()
         {
             _tope = null;
-        }
+        } 
         public void Push(NodoPila unNodo)
         {
             if (_tope == null)

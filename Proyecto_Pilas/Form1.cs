@@ -16,13 +16,20 @@ namespace Proyecto_Pilas
 
         private void btnApilar_Click(object sender, EventArgs e)
         {
-            int numero = int.Parse(txtNumero.Text);
+            try
+            {
+                int numero = int.Parse(txtNumero.Text);
             string nombre = txtNombre.Text;
             string fecha = DateTime.Now.ToString("dd/MM/yyyy_hh:mm:ss");
             NodoPila NodoNuevo = new NodoPila(numero,nombre,fecha);
             _pila.Push(NodoNuevo);
             _pila.Guardar();
             _pila.Mostrar(lstVPilas);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
         }
 
         private void btnDesapilar_Click(object sender, EventArgs e)
@@ -34,12 +41,19 @@ namespace Proyecto_Pilas
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            int numero = int.Parse(txtNumero.Text);
-            string fecha = DateTime.Now.ToString("dd/MM/yyyy_hh:mm:ss");
-            _pila.Modificar(numero, txtNombre.Text, fecha);
-            txtNumero.Clear();
-            txtNombre.Clear();
-            _pila.Mostrar(lstVPilas);
+            try
+            {
+                int numero = int.Parse(txtNumero.Text);
+                string fecha = DateTime.Now.ToString("dd/MM/yyyy_hh:mm:ss");
+                _pila.Modificar(numero, txtNombre.Text, fecha);
+                txtNumero.Clear();
+                txtNombre.Clear();
+                _pila.Mostrar(lstVPilas);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
